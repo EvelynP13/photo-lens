@@ -1,20 +1,37 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import HomeNavigator from "./src/navigators/Home";
+import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import PhotosNavigator from "./src/navigators/Photos";
+import CollectionsNavigator from "./src/navigators/Collections";
 
 export default function App() {
+  const Drawer = createDrawerNavigator();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <NavigationContainer style={styles.container}>
+      <Drawer.Navigator>
+        <Drawer.Screen
+          name="Home"
+          component={HomeNavigator}
+          options={{ title: "Photo Lens" }}
+        />
+        <Drawer.Screen
+          name="Photos"
+          component={PhotosNavigator}
+          options={{ title: "Photos" }}
+        />
+        <Drawer.Screen
+          name="Collections"
+          component={CollectionsNavigator}
+          options={{ title: "Photo Collections" }}
+        />
+      </Drawer.Navigator>
       <StatusBar style="auto" hidden={true} />
-    </View>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  container: {},
 });
