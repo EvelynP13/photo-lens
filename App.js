@@ -10,11 +10,11 @@ export default function App() {
   const Drawer = createDrawerNavigator();
   return (
     <NavigationContainer style={styles.container}>
-      <Drawer.Navigator>
+      <Drawer.Navigator screenOptions={{ headerShown: false }}>
         <Drawer.Screen
           name="Home"
           component={HomeNavigator}
-          options={{ title: "Photo Lens" }}
+          options={{ title: "Home" }}
         />
         <Drawer.Screen
           name="Photos"

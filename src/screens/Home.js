@@ -6,16 +6,19 @@ export default function HomeScreen({ navigation }) {
     return (
         <View style={StyleSheet.HomeScreen}>
         <TouchableOpacity onPress={() => navigation.navigate ('Photos')}>
-            <Text>Browse Photos</Text>
+            <Text style={styles.metaDataText}>Browse Photos</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate ('Collections')}>
-            <Text>Browse Collections</Text>
+            <Text style={styles.metaDataText}>Browse Collections</Text>
         </TouchableOpacity>
         </View>
     );
 }
 
 const styles = StyleSheet.create({ HomeScreen: {
-    padding: 20
+    padding: 20,
 },
+metaDataText: {
+    fontSize: 20,
+}
 });
